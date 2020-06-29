@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Dagger-Hilt-starter</string>
+    <string name="text_button_random_button">random quote</string>
+    <string name="text_bubble_image">Bubble image</string>
+
+    <string name="author">%1$s!, Author</string>
+</resources>
