@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class QuoteResponse(
 
 	@field:SerializedName("author")
-	val author: String? = null,
+	val author: String = "~",
 
 	@field:SerializedName("en")
 	val quote: String? = null,
