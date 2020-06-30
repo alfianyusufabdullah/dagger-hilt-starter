@@ -1,4 +1,4 @@
-package alfianyusufabdullah.hilt
+package alfianyusufabdullah.hilt.quote
 
 import alfianyusufabdullah.hilt.data.entity.QuoteResponse
 import alfianyusufabdullah.hilt.data.repository.QuoteRepositoryImpl
