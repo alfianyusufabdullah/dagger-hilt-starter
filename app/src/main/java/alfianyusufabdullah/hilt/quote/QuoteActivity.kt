@@ -1,5 +1,6 @@
-package alfianyusufabdullah.hilt
+package alfianyusufabdullah.hilt.quote
 
+import alfianyusufabdullah.hilt.R
 import alfianyusufabdullah.hilt.databinding.ActivityQuoteBinding
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -16,7 +17,9 @@ class QuoteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val quoteViewBinding: ActivityQuoteBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_quote)
+            DataBindingUtil.setContentView(this,
+                R.layout.activity_quote
+            )
 
         quoteViewBinding.quoteViewModel = quoteViewModel
         quoteViewBinding.lifecycleOwner = this
