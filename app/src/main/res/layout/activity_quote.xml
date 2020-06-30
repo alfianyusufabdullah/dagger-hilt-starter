@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="quoteViewModel"
-            type="alfianyusufabdullah.hilt.QuoteViewModel" />
+            type="alfianyusufabdullah.hilt.quote.QuoteViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".QuoteActivity">
+        tools:context=".quote.QuoteActivity">
 
         <FrameLayout
             android:id="@+id/backgroundContainer"
