@@ -1,12 +1,11 @@
 package alfianyusufabdullah.hilt
 
-import alfianyusufabdullah.hilt.data.entity.QuoteResponse
+import alfianyusufabdullah.hilt.databinding.ActivityQuoteBinding
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
+import androidx.databinding.DataBindingUtil
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_quote.*
 
 @AndroidEntryPoint
 class QuoteActivity : AppCompatActivity() {
@@ -15,20 +14,11 @@ class QuoteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quote)
 
-        quoteViewModel.quote.observe(this, Observer {
-            renderUI(it)
-        })
+        val quoteViewBinding: ActivityQuoteBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_quote)
 
-        btnRandomQuote.setOnClickListener {
-            quoteViewModel.getRandomQuote()
-        }
+        quoteViewBinding.quoteViewModel = quoteViewModel
+        quoteViewBinding.lifecycleOwner = this
     }
-
-    private fun renderUI(quoteResponse: QuoteResponse) {
-        tvQuote.text = quoteResponse.quote
-        tvAuthor.text = getString(R.string.author, quoteResponse.author)
-    }
-
 }
