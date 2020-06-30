@@ -1,90 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rootView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".QuoteActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <FrameLayout
-        android:id="@+id/backgroundContainer"
+    <data>
+
+        <variable
+            name="quoteViewModel"
+            type="alfianyusufabdullah.hilt.QuoteViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FF7D5E" />
+        tools:context=".QuoteActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="360dp"
-        android:layout_height="355dp"
-        android:contentDescription="@string/text_bubble_image"
-        android:src="@drawable/ic_bubble_top"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <FrameLayout
+            android:id="@+id/backgroundContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FF7D5E" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="120dp"
-        android:contentDescription="@string/text_bubble_image"
-        android:src="@drawable/ic_quote"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="360dp"
+            android:layout_height="355dp"
+            android:contentDescription="@string/text_bubble_image"
+            android:src="@drawable/ic_bubble_top"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="145dp"
-        android:contentDescription="@string/text_bubble_image"
-        android:src="@drawable/ic_bubble_bottom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="120dp"
+            android:contentDescription="@string/text_bubble_image"
+            android:src="@drawable/ic_quote"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/tvQuote"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:textColor="#fff"
-        android:textStyle="bold|italic"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        tools:text="Aku sayang sama kamu" />
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="145dp"
+            android:contentDescription="@string/text_bubble_image"
+            android:src="@drawable/ic_bubble_bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="50dp"
-        android:layout_height="1dp"
-        android:background="#fff"
-        android:layout_marginTop="60dp"
-        app:layout_constraintStart_toStartOf="@+id/tvQuote"
-        app:layout_constraintTop_toBottomOf="@+id/tvQuote" />
+        <TextView
+            android:id="@+id/tvQuote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="#fff"
+            android:textSize="17sp"
+            android:textStyle="bold|italic"
+            android:text="@{quoteViewModel.quote.quote}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"/>
 
-    <TextView
-        android:id="@+id/tvAuthor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        tools:text="Alfian Yusuf Abdullah, Author"
-        android:textColor="#fff"
-        android:layout_marginTop="12dp"/>
+        <View
+            android:id="@+id/view"
+            android:layout_width="50dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="60dp"
+            android:background="#fff"
+            app:layout_constraintStart_toStartOf="@+id/tvQuote"
+            app:layout_constraintTop_toBottomOf="@+id/tvQuote" />
 
-    <Button
-        android:id="@+id/btnRandomQuote"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/text_button_random_button"
-        android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="#68FFFFFF" />
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@{quoteViewModel.quote.author}"
+            android:textColor="#fff"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnRandomQuote"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:onClick="@{() -> quoteViewModel.getRandomQuote() }"
+            android:text="@string/text_button_random_button"
+            android:textColor="#fff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="#68FFFFFF" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
